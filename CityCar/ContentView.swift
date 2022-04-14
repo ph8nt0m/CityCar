@@ -11,6 +11,7 @@ import UIKit
 
 struct ContentView: View {
     @State var isLoading: Bool = true
+    @State var isToggleTab = 0
 
     init() {
         UIScrollView.appearance().bounces = false
@@ -76,61 +77,84 @@ struct ContentView: View {
                             }
 
                             HStack {
-                                VStack {
-                                    Image("calendar_1")
+                                Button(action: {
+                                    self.isToggleTab = 0
+                                }) {
+                                    VStack {
+                                        Image("calendar_1")
 
-                                    Text("하루만 탈게요")
-                                        .font(.system(size: 13, weight: .regular))
-                                        .padding(.top, 15.0)
-                                        .padding(.bottom, 5.0)
+                                        Text("하루만 탈게요")
+                                            .font(.system(size: 13, weight: .regular))
+                                            .foregroundColor(Color.black)
+                                            .padding(.top, 15.0)
+                                            .padding(.bottom, 5.0)
 
-                                    Text("데일리\n단기렌트")
-                                        .font(.system(size: 15, weight: .medium))
-                                        .multilineTextAlignment(.center)
-                                        .lineSpacing(5.0)
+                                        Text("데일리\n단기렌트")
+                                            .font(.system(size: 15, weight: .medium))
+                                            .foregroundColor(Color.black)
+                                            .multilineTextAlignment(.center)
+                                            .lineSpacing(5.0)
+                                    }
+                                    .frame(width: 110.0, height: 165.0)
+                                    .background(Color.white)
+                                    .cornerRadius(10, corners: .bottomLeft)
+                                    .cornerRadius(10, corners: .bottomRight)
+                                    .cornerRadius(10, corners: .topLeft)
+                                    .cornerRadius(10, corners: .topRight)
+                                    .shadow(color: Color(hue: 0.651, saturation: 0.44, brightness: 0.989), radius: self.isToggleTab == 0 ? 10 : 0, x: 0, y: 0)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(Color("PrimaryColor"), lineWidth: self.isToggleTab == 0 ? 1 : 0)
+                                    )
                                 }
-                                .frame(width: 110.0, height: 165.0)
-                                .background(Color.white)
-                                .cornerRadius(10, corners: .bottomLeft)
-                                .cornerRadius(10, corners: .bottomRight)
-                                .cornerRadius(10, corners: .topLeft)
-                                .cornerRadius(10, corners: .topRight)
-                                .shadow(color: Color(hue: 0.651, saturation: 0.44, brightness: 0.989), radius: 10, x: 0, y: 0)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(Color("PrimaryColor"), lineWidth: 1)
-                                )
 
-                                VStack {
-                                    Image("calendar_31")
+                                Button(action: {
+                                    self.isToggleTab = 1
+                                }) {
+                                    VStack {
+                                        Image("calendar_31")
 
-                                    Text("한달간 탈게요")
-                                        .font(.system(size: 13, weight: .regular))
-                                        .padding(.top, 15.0)
-                                        .padding(.bottom, 5.0)
+                                        Text("한달간 탈게요")
+                                            .font(.system(size: 13, weight: .regular))
+                                            .foregroundColor(Color.black)
+                                            .padding(.top, 15.0)
+                                            .padding(.bottom, 5.0)
 
-                                    Text("월단위\n기간렌트")
-                                        .font(.system(size: 15, weight: .medium))
-                                        .multilineTextAlignment(.center)
-                                        .lineSpacing(5.0)
+                                        Text("월단위\n기간렌트")
+                                            .font(.system(size: 15, weight: .medium))
+                                            .foregroundColor(Color.black)
+                                            .multilineTextAlignment(.center)
+                                            .lineSpacing(5.0)
+                                    }
+                                    .frame(width: 110.0, height: 165.0)
+                                    .background(Color.white)
+                                    .cornerRadius(10, corners: .bottomLeft)
+                                    .cornerRadius(10, corners: .bottomRight)
+                                    .cornerRadius(10, corners: .topLeft)
+                                    .cornerRadius(10, corners: .topRight)
+                                    .shadow(color: Color(hue: 0.651, saturation: 0.44, brightness: 0.989), radius: self.isToggleTab == 1 ? 10 : 0, x: 0, y: 0)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(Color("PrimaryColor"), lineWidth: self.isToggleTab == 1 ? 1 : 0)
+                                    )
                                 }
-                                .frame(width: 110.0, height: 165.0)
-                                .background(Color.white)
-                                .cornerRadius(10, corners: .bottomLeft)
-                                .cornerRadius(10, corners: .bottomRight)
-                                .cornerRadius(10, corners: .topLeft)
-                                .cornerRadius(10, corners: .topRight)
+                                
+                                Button(action: {
+                                    self.isToggleTab = 2
+                                }) {
 
                                 VStack {
                                     Image("infinite")
 
                                     Text("제한없이 탈게요")
                                         .font(.system(size: 13, weight: .regular))
+                                        .foregroundColor(Color.black)
                                         .padding(.top, 15.0)
                                         .padding(.bottom, 5.0)
 
                                     Text("언리밋\n장기렌트")
                                         .font(.system(size: 15, weight: .medium))
+                                        .foregroundColor(Color.black)
                                         .multilineTextAlignment(.center)
                                         .lineSpacing(5.0)
                                 }
@@ -140,9 +164,15 @@ struct ContentView: View {
                                 .cornerRadius(10, corners: .bottomRight)
                                 .cornerRadius(10, corners: .topLeft)
                                 .cornerRadius(10, corners: .topRight)
+                                .shadow(color: Color(hue: 0.651, saturation: 0.44, brightness: 0.989), radius: self.isToggleTab == 2 ? 10 : 0, x: 0, y: 0)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color("PrimaryColor"), lineWidth: self.isToggleTab == 2 ? 1 : 0)
+                                )
+                                }
                             }.offset(x: 0, y: 150)
                         }
-                        
+
                         GPSBox()
 
                         VStack {
@@ -165,7 +195,7 @@ struct ContentView: View {
                 .navigationBarHidden(true)
                 .navigationBarTitle(Text("Home"))
                 .edgesIgnoringSafeArea([.top, .bottom])
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
@@ -289,8 +319,6 @@ struct CarListView: View {
         }
     }
 }
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
