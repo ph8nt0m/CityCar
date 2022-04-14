@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F25A0442807AA9700718D34 /* SafeArea+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F25A0432807AA9700718D34 /* SafeArea+Extenstion.swift */; };
+		6F9CE4882806EB9C0085D249 /* View+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9CE4872806EB9C0085D249 /* View+Extenstion.swift */; };
 		6FE69A5A2806675E00F54814 /* CityCarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE69A592806675E00F54814 /* CityCarApp.swift */; };
 		6FE69A5C2806675E00F54814 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE69A5B2806675E00F54814 /* ContentView.swift */; };
 		6FE69A5E2806675F00F54814 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FE69A5D2806675F00F54814 /* Assets.xcassets */; };
@@ -16,6 +18,7 @@
 		6FE69A702806676000F54814 /* CityCarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE69A6F2806676000F54814 /* CityCarTests.swift */; };
 		6FE69A7A2806676000F54814 /* CityCarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE69A792806676000F54814 /* CityCarUITests.swift */; };
 		6FE69A7C2806676000F54814 /* CityCarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE69A7B2806676000F54814 /* CityCarUITestsLaunchTests.swift */; };
+		6FE69A8928066B7800F54814 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE69A8828066B7700F54814 /* LaunchScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6F25A0432807AA9700718D34 /* SafeArea+Extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SafeArea+Extenstion.swift"; sourceTree = "<group>"; };
+		6F9CE4872806EB9C0085D249 /* View+Extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extenstion.swift"; sourceTree = "<group>"; };
 		6FE69A562806675E00F54814 /* CityCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FE69A592806675E00F54814 /* CityCarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCarApp.swift; sourceTree = "<group>"; };
 		6FE69A5B2806675E00F54814 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,6 +53,7 @@
 		6FE69A752806676000F54814 /* CityCarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CityCarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FE69A792806676000F54814 /* CityCarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCarUITests.swift; sourceTree = "<group>"; };
 		6FE69A7B2806676000F54814 /* CityCarUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCarUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6FE69A8828066B7700F54814 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F9CE4862806EB8B0085D249 /* Extenstion */ = {
+			isa = PBXGroup;
+			children = (
+				6FE69A8828066B7700F54814 /* LaunchScreen.swift */,
+				6F9CE4872806EB9C0085D249 /* View+Extenstion.swift */,
+				6F25A0432807AA9700718D34 /* SafeArea+Extenstion.swift */,
+			);
+			path = Extenstion;
+			sourceTree = "<group>";
+		};
 		6FE69A4D2806675E00F54814 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +114,7 @@
 		6FE69A582806675E00F54814 /* CityCar */ = {
 			isa = PBXGroup;
 			children = (
+				6F9CE4862806EB8B0085D249 /* Extenstion */,
 				6FE69A592806675E00F54814 /* CityCarApp.swift */,
 				6FE69A5B2806675E00F54814 /* ContentView.swift */,
 				6FE69A5D2806675F00F54814 /* Assets.xcassets */,
@@ -265,7 +282,10 @@
 			files = (
 				6FE69A632806675F00F54814 /* Persistence.swift in Sources */,
 				6FE69A5C2806675E00F54814 /* ContentView.swift in Sources */,
+				6FE69A8928066B7800F54814 /* LaunchScreen.swift in Sources */,
 				6FE69A5A2806675E00F54814 /* CityCarApp.swift in Sources */,
+				6F9CE4882806EB9C0085D249 /* View+Extenstion.swift in Sources */,
+				6F25A0442807AA9700718D34 /* SafeArea+Extenstion.swift in Sources */,
 				6FE69A662806675F00F54814 /* CityCar.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,6 +453,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -462,6 +483,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
