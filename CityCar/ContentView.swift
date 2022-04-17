@@ -10,192 +10,213 @@ import SwiftUI
 import UIKit
 
 struct ContentView: View {
+    var body: some View {
+        NavigationView {
+            NavigatorView()
+            
+            .navigationBarHidden(true)
+        }.navigationViewStyle(StackNavigationViewStyle())
+    }
+}
+
+struct NavigatorView: View {
     @State var isLoading: Bool = true
-    @State var isToggleTab = 0
 
     init() {
         UIScrollView.appearance().bounces = false
     }
 
     var body: some View {
-        NavigationView {
-            ZStack {
-                // Launch Screen
+        ZStack {
+            // Launch Screen
 //                if isLoading {
 //                    launchScreenView
 //                }
-                VStack {
-                    ScrollView(showsIndicators: false) {
-                        ZStack {
-                            VStack {
-                                VStack {
-                                    HStack {
-                                        Image("menu")
-                                        Spacer()
-                                        Image("textLogo")
-                                            .resizable(resizingMode: .stretch)
-                                            .frame(width: 70.0, height: 20.0)
-                                        Spacer()
-                                        Image("alarm")
-                                    }
-                                    .padding(.top, 20.0)
-                                    .padding(.horizontal, 30.0)
-
-                                    HStack {
-                                        VStack(alignment: .leading) {
-                                            HStack {
-                                                Text("안녕하세요,")
-                                                    .foregroundColor(Color.white)
-                                                Text("홍길동")
-                                                    .fontWeight(.bold)
-                                                    .foregroundColor(Color.white)
-                                                Text("님!")
-                                                    .foregroundColor(Color.white)
-                                            }
-                                            .padding(.bottom, 1.0)
-
-                                            Text("렌트 유형을 선택해주세요")
-                                                .foregroundColor(Color.white)
-                                        }
-
-                                        Spacer()
-                                        Image("car")
-                                            .resizable(resizingMode: .stretch)
-                                            .frame(width: 36.0, height: 48.0)
-                                    }
-                                    .padding(.horizontal, 30.0)
-                                    .padding(.top, 50.0)
-                                }
-                                .frame(
-                                    maxWidth: .infinity
-                                )
-                                .frame(height: 279.0, alignment: .top)
-                                .padding(EdgeInsets(top: safeAreaTopInset(), leading: 0, bottom: 0, trailing: 0))
-                                .background(Color("PrimaryColor"))
-                                .cornerRadius(10, corners: .bottomLeft)
-                                .cornerRadius(10, corners: .bottomRight)
-                            }
-
-                            HStack {
-                                Button(action: {
-                                    self.isToggleTab = 0
-                                }) {
-                                    VStack {
-                                        Image("calendar_1")
-
-                                        Text("하루만 탈게요")
-                                            .font(.system(size: 13, weight: .regular))
-                                            .foregroundColor(Color.black)
-                                            .padding(.top, 15.0)
-                                            .padding(.bottom, 5.0)
-
-                                        Text("데일리\n단기렌트")
-                                            .font(.system(size: 15, weight: .medium))
-                                            .foregroundColor(Color.black)
-                                            .multilineTextAlignment(.center)
-                                            .lineSpacing(5.0)
-                                    }
-                                    .frame(width: 110.0, height: 165.0)
-                                    .background(Color.white)
-                                    .cornerRadius(10, corners: .bottomLeft)
-                                    .cornerRadius(10, corners: .bottomRight)
-                                    .cornerRadius(10, corners: .topLeft)
-                                    .cornerRadius(10, corners: .topRight)
-                                    .shadow(color: Color(hue: 0.651, saturation: 0.44, brightness: 0.989), radius: self.isToggleTab == 0 ? 10 : 0, x: 0, y: 0)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(Color("PrimaryColor"), lineWidth: self.isToggleTab == 0 ? 1 : 0)
-                                    )
-                                }
-
-                                Button(action: {
-                                    self.isToggleTab = 1
-                                }) {
-                                    VStack {
-                                        Image("calendar_31")
-
-                                        Text("한달간 탈게요")
-                                            .font(.system(size: 13, weight: .regular))
-                                            .foregroundColor(Color.black)
-                                            .padding(.top, 15.0)
-                                            .padding(.bottom, 5.0)
-
-                                        Text("월단위\n기간렌트")
-                                            .font(.system(size: 15, weight: .medium))
-                                            .foregroundColor(Color.black)
-                                            .multilineTextAlignment(.center)
-                                            .lineSpacing(5.0)
-                                    }
-                                    .frame(width: 110.0, height: 165.0)
-                                    .background(Color.white)
-                                    .cornerRadius(10, corners: .bottomLeft)
-                                    .cornerRadius(10, corners: .bottomRight)
-                                    .cornerRadius(10, corners: .topLeft)
-                                    .cornerRadius(10, corners: .topRight)
-                                    .shadow(color: Color(hue: 0.651, saturation: 0.44, brightness: 0.989), radius: self.isToggleTab == 1 ? 10 : 0, x: 0, y: 0)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(Color("PrimaryColor"), lineWidth: self.isToggleTab == 1 ? 1 : 0)
-                                    )
-                                }
-                                
-                                Button(action: {
-                                    self.isToggleTab = 2
-                                }) {
-
-                                VStack {
-                                    Image("infinite")
-
-                                    Text("제한없이 탈게요")
-                                        .font(.system(size: 13, weight: .regular))
-                                        .foregroundColor(Color.black)
-                                        .padding(.top, 15.0)
-                                        .padding(.bottom, 5.0)
-
-                                    Text("언리밋\n장기렌트")
-                                        .font(.system(size: 15, weight: .medium))
-                                        .foregroundColor(Color.black)
-                                        .multilineTextAlignment(.center)
-                                        .lineSpacing(5.0)
-                                }
-                                .frame(width: 110.0, height: 165.0)
-                                .background(Color.white)
-                                .cornerRadius(10, corners: .bottomLeft)
-                                .cornerRadius(10, corners: .bottomRight)
-                                .cornerRadius(10, corners: .topLeft)
-                                .cornerRadius(10, corners: .topRight)
-                                .shadow(color: Color(hue: 0.651, saturation: 0.44, brightness: 0.989), radius: self.isToggleTab == 2 ? 10 : 0, x: 0, y: 0)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(Color("PrimaryColor"), lineWidth: self.isToggleTab == 2 ? 1 : 0)
-                                )
-                                }
-                            }.offset(x: 0, y: 150)
-                        }
-
-                        GPSBox()
-
+            VStack {
+                ScrollView(showsIndicators: false) {
+                    ZStack {
                         VStack {
-                            CarListView()
-                            CarListView()
-                            CarListView()
+                            TopMenu()
                         }
-                        .padding(.bottom, 10.0)
+
+                        ToogleTabList()
                     }
 
-                    BottomBar()
-                }
+                    GPSBox()
 
-            }.ignoresSafeArea(edges: .vertical)
-                .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        isLoading.toggle()
+                    VStack {
+                        CarListView()
+                        CarListView()
+                        CarListView()
                     }
+                    .padding(.bottom, 10.0)
                 }
-                .navigationBarHidden(true)
-                .navigationBarTitle(Text("Home"))
-                .edgesIgnoringSafeArea([.top, .bottom])
-        }.navigationViewStyle(StackNavigationViewStyle())
+                NavigationLink(destination: CarView().navigationBarBackButtonHidden(true)
+                    .navigationBarHidden(true).navigationBarTitle("", displayMode: .automatic)) {
+                        BottomBar()
+                    }
+            }
+
+        }.ignoresSafeArea(edges: .vertical)
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    isLoading.toggle()
+                }
+            }
+    }
+}
+
+struct TopMenu: View {
+    var body: some View {
+        VStack {
+            VStack {
+                HStack {
+                    Image("menu")
+                    Spacer()
+                    Image("textLogo")
+                        .resizable(resizingMode: .stretch)
+                        .frame(width: 70.0, height: 20.0)
+                    Spacer()
+                    Image("alarm")
+                }
+                .padding(.top, 20.0)
+                .padding(.horizontal, 30.0)
+
+                HStack {
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Text("안녕하세요,")
+                                .foregroundColor(Color.white)
+                            Text("홍길동")
+                                .fontWeight(.bold)
+                                .foregroundColor(Color.white)
+                            Text("님!")
+                                .foregroundColor(Color.white)
+                        }
+                        .padding(.bottom, 1.0)
+
+                        Text("렌트 유형을 선택해주세요")
+                            .foregroundColor(Color.white)
+                    }
+
+                    Spacer()
+                    Image("car")
+                        .resizable(resizingMode: .stretch)
+                        .frame(width: 36.0, height: 48.0)
+                }
+                .padding(.horizontal, 30.0)
+                .padding(.top, 50.0)
+            }
+            .frame(
+                maxWidth: .infinity
+            )
+            .frame(height: 279.0, alignment: .top)
+            .padding(EdgeInsets(top: safeAreaTopInset(), leading: 0, bottom: 0, trailing: 0))
+            .background(Color("PrimaryColor"))
+            .cornerRadius(10, corners: .bottomLeft)
+            .cornerRadius(10, corners: .bottomRight)
+        }
+    }
+}
+
+struct ToogleTabList: View {
+    @State var isToggleTab = 0
+
+    var body: some View {
+        HStack {
+            Button(action: {
+                isToggleTab = 0
+            }) {
+                VStack {
+                    Image("calendar_1")
+
+                    Text("하루만 탈게요")
+                        .font(.system(size: 13, weight: .regular))
+                        .foregroundColor(Color.black)
+                        .padding(.top, 15.0)
+                        .padding(.bottom, 5.0)
+
+                    Text("데일리\n단기렌트")
+                        .font(.system(size: 15, weight: .medium))
+                        .foregroundColor(Color.black)
+                        .multilineTextAlignment(.center)
+                        .lineSpacing(5.0)
+                }
+                .frame(width: 110.0, height: 165.0)
+                .background(Color.white)
+                .cornerRadius(10, corners: .bottomLeft)
+                .cornerRadius(10, corners: .bottomRight)
+                .cornerRadius(10, corners: .topLeft)
+                .cornerRadius(10, corners: .topRight)
+                .shadow(color: Color(hue: 0.651, saturation: 0.44, brightness: 0.989), radius: isToggleTab == 0 ? 10 : 0, x: 0, y: 0)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color("PrimaryColor"), lineWidth: isToggleTab == 0 ? 1 : 0)
+                )
+            }
+
+            Button(action: {
+                isToggleTab = 1
+            }) {
+                VStack {
+                    Image("calendar_31")
+
+                    Text("한달간 탈게요")
+                        .font(.system(size: 13, weight: .regular))
+                        .foregroundColor(Color.black)
+                        .padding(.top, 15.0)
+                        .padding(.bottom, 5.0)
+
+                    Text("월단위\n기간렌트")
+                        .font(.system(size: 15, weight: .medium))
+                        .foregroundColor(Color.black)
+                        .multilineTextAlignment(.center)
+                        .lineSpacing(5.0)
+                }
+                .frame(width: 110.0, height: 165.0)
+                .background(Color.white)
+                .cornerRadius(10, corners: .bottomLeft)
+                .cornerRadius(10, corners: .bottomRight)
+                .cornerRadius(10, corners: .topLeft)
+                .cornerRadius(10, corners: .topRight)
+                .shadow(color: Color(hue: 0.651, saturation: 0.44, brightness: 0.989), radius: isToggleTab == 1 ? 10 : 0, x: 0, y: 0)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color("PrimaryColor"), lineWidth: isToggleTab == 1 ? 1 : 0)
+                )
+            }
+
+            Button(action: {
+                isToggleTab = 2
+            }) {
+                VStack {
+                    Image("infinite")
+
+                    Text("제한없이 탈게요")
+                        .font(.system(size: 13, weight: .regular))
+                        .foregroundColor(Color.black)
+                        .padding(.top, 15.0)
+                        .padding(.bottom, 5.0)
+
+                    Text("언리밋\n장기렌트")
+                        .font(.system(size: 15, weight: .medium))
+                        .foregroundColor(Color.black)
+                        .multilineTextAlignment(.center)
+                        .lineSpacing(5.0)
+                }
+                .frame(width: 110.0, height: 165.0)
+                .background(Color.white)
+                .cornerRadius(10, corners: .bottomLeft)
+                .cornerRadius(10, corners: .bottomRight)
+                .cornerRadius(10, corners: .topLeft)
+                .cornerRadius(10, corners: .topRight)
+                .shadow(color: Color(hue: 0.651, saturation: 0.44, brightness: 0.989), radius: isToggleTab == 2 ? 10 : 0, x: 0, y: 0)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color("PrimaryColor"), lineWidth: isToggleTab == 2 ? 1 : 0)
+                )
+            }
+        }.offset(x: 0, y: 150)
     }
 }
 
@@ -250,7 +271,8 @@ struct BottomBar: View {
         ).frame(height: 60.0, alignment: .center)
         .background(Color("PrimaryColor"))
         .cornerRadius(10, corners: .topLeft)
-        .cornerRadius(10, corners: .topRight).padding(EdgeInsets(top: 0, leading: 0, bottom: safeAreaBottomInset(), trailing: 0))
+        .cornerRadius(10, corners: .topRight)
+        .padding(EdgeInsets(top: 0, leading: 0, bottom: safeAreaBottomInset(), trailing: 0))
     }
 }
 
