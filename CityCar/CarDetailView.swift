@@ -23,6 +23,11 @@ struct CarDetailView: View {
                             TopMenuCarDetail()
                             CarDetailBox()
                         }
+
+                        RentBox()
+                        
+                        InsuranceBox()
+                        
                     }
                 }
             }
@@ -30,6 +35,104 @@ struct CarDetailView: View {
         }.ignoresSafeArea(edges: .top)
             .navigationBarHidden(true)
             .edgesIgnoringSafeArea(.top)
+    }
+}
+
+struct InsuranceBox: View {
+    var body: some View {
+        VStack(alignment: .leading) {
+            HStack {
+                Text("자차보험")
+                    .font(.system(size: 18, weight: .bold))
+                Text("요금제보기")
+                    .font(.system(size: 14, weight: .bold))
+                    .foregroundColor(Color("PrimaryColor"))
+            }
+
+            HStack {
+                
+                VStack {
+                    Text("신청")
+                        .font(.system(size: 13, weight: .bold))
+                        .foregroundColor(Color.white)
+                }
+                .frame(width: 117.0, height: 40.0)
+                .background(Color("PrimaryColor"))
+                .cornerRadius(10, corners: .bottomLeft)
+                .cornerRadius(10, corners: .topLeft)
+                .padding(.trailing, -4)
+                
+                
+                VStack {
+                    Text("미신청")
+                        .font(.system(size: 13, weight: .bold))
+                        .foregroundColor(Color.black)
+                }
+                .frame(width: 117.0, height: 40.0)
+                .background(Color.white)
+                .padding(.horizontal, -4)
+                .shadow(color: Color(hue: 0.0, saturation: 0.014, brightness: 0.864), radius: 10, x: 0, y: 0)
+                
+                VStack {
+                    Text("미신청")
+                        .font(.system(size: 13, weight: .bold))
+                        .foregroundColor(Color.black)
+                }
+                .frame(width: 117.0, height: 40.0)
+                .background(Color.white)
+                .cornerRadius(10, corners: .bottomRight)
+                .cornerRadius(10, corners: .topRight)
+                .padding(.leading, -4)
+                .shadow(color: Color(hue: 0.0, saturation: 0.014, brightness: 0.864), radius: 10, x: 0, y: 0)
+
+            }
+            .frame(maxWidth: 350.0)
+            
+        }
+        .padding(.top, 650.0)
+        .padding(.horizontal, 20.0)
+    }
+}
+
+struct RentBox: View {
+    var body: some View {
+        VStack(alignment: .leading) {
+            HStack {
+                Text("배달렌트")
+                    .font(.system(size: 18, weight: .bold))
+                Image("detailIcon")
+            }
+
+            HStack {
+                
+                VStack {
+                    Text("신청")
+                        .font(.system(size: 13, weight: .bold))
+                        .foregroundColor(Color.white)
+                }
+                .frame(width: 175.0, height: 40.0)
+                .background(Color("PrimaryColor"))
+                .cornerRadius(10, corners: .bottomLeft)
+                .cornerRadius(10, corners: .topLeft)
+                .padding(.trailing, -4)
+                
+                VStack {
+                    Text("미신청")
+                        .font(.system(size: 13, weight: .bold))
+                        .foregroundColor(Color.black)
+                }
+                .frame(width: 175.0, height: 40.0)
+                .background(Color.white)
+                .cornerRadius(10, corners: .bottomRight)
+                .cornerRadius(10, corners: .topRight)
+                .padding(.leading, -4)
+                .shadow(color: Color(hue: 0.0, saturation: 0.014, brightness: 0.864), radius: 10, x: 0, y: 0)
+
+            }
+            .frame(maxWidth: 350.0)
+        }
+        .padding(.top, 450.0)
+        .padding(.horizontal, 20.0)
     }
 }
 
@@ -124,9 +227,8 @@ struct CarDetailBox: View {
             }
             .padding(.horizontal, 30.0)
             .padding(.bottom, 20.0)
-            
+
             VStack {
-                
                 HStack(alignment: .center) {
                     VStack {
                         Text("2021년 9월 13일")
@@ -136,7 +238,7 @@ struct CarDetailBox: View {
                             .foregroundColor(Color.white)
                             .font(.system(size: 16, weight: .bold))
                     }
-                    
+
                     Spacer()
                     Text("~")
                         .foregroundColor(Color.white)
@@ -151,7 +253,7 @@ struct CarDetailBox: View {
                             .font(.system(size: 16, weight: .bold))
                     }
                 }
-                
+
                 Spacer()
             }
             .padding(.horizontal, 50.0)
@@ -210,8 +312,8 @@ struct TopMenuCarDetail: View {
 struct CarDetailView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .previewDevice(PreviewDevice(rawValue: "iPhone 12"))
-            .previewDisplayName("iPhone 12")
+            .previewDevice(PreviewDevice(rawValue: "iPhone 6s"))
+            .previewDisplayName("iPhone 6s")
 
         CarDetailView()
             .previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro Max"))
