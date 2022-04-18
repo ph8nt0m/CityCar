@@ -15,6 +15,7 @@ struct CarDetailView: View {
     }
 
     var body: some View {
+        GeometryReader { geometry in
         ZStack {
             VStack {
                 ScrollView(showsIndicators: false) {
@@ -28,13 +29,78 @@ struct CarDetailView: View {
                         
                         InsuranceBox()
                         
+                        
+                        
+                        
+                        
                     }
+                    .padding(.bottom, 10.0)
+                }
+            
+                
+                ZStack {
+                    VStack {
+                        VStack(alignment: .leading){
+                            HStack {
+                                Image("moneyIcon")
+                                
+                                VStack(alignment: .leading) {
+                                    HStack {
+                                    Text("240,400")
+                                        .font(.system(size: 20, weight: .bold))
+                                    Text("원")
+                                        .font(.system(size: 16, weight: .medium))
+                                    }
+                                    Text("렌트비 210,000원 + 스탠다드 30,400원")
+                                        .font(.system(size: 14, weight: .light))
+                                }
+                                .padding(.leading, 20.0)
+                                
+                                Spacer()
+                            }
+                            
+                        }
+                        .padding(.leading, 30.0)
+                            .frame(width: .infinity, height: 70.0).background(Color.white)
+                            
+                            .cornerRadius(20, corners: .topRight)
+                            .cornerRadius(20, corners: .topLeft)
+                            .shadow(color: Color(hue: 0.0, saturation: 0.014, brightness: 0.864), radius: 10, x: 0, y: 0)
+                            .padding(.bottom, -4)
+                        
+                        HStack {
+                            
+                            VStack {
+                                Text("비교함 담기")
+                                    .font(.system(size: 16, weight: .medium))
+                                    .foregroundColor(Color.white)
+                            }
+                            .frame(width: geometry.size.width * 0.5, height: 60.0)
+                            .background(Color(red: 0.21176470588235294, green: 0.21176470588235294, blue: 0.21176470588235294))
+                            .padding(.trailing, -4)
+                            
+                            VStack {
+                                Text("바로 예약")
+                                    .font(.system(size: 16, weight: .medium))
+                                    .foregroundColor(Color.white)
+                            }
+                            .frame(width: geometry.size.width * 0.5, height: 60.0)
+                            .background(Color("PrimaryColor"))
+                            .padding(.leading, -4)
+
+                        }
+                        .frame(maxWidth: 350.0).padding(.top, -4)
+                    }
+                    .frame(
+                        maxWidth: .infinity
+                    )
                 }
             }
-
+            
         }.ignoresSafeArea(edges: .top)
-            .navigationBarHidden(true)
-            .edgesIgnoringSafeArea(.top)
+                .navigationBarHidden(true)
+                .edgesIgnoringSafeArea(.top)
+    }
     }
 }
 
@@ -89,8 +155,8 @@ struct InsuranceBox: View {
             .frame(maxWidth: 350.0)
             
         }
-        .padding(.top, 650.0)
-        .padding(.horizontal, 20.0)
+        .padding(.top, 450.0)
+//        .padding(.horizontal, 20.0)
     }
 }
 
@@ -131,8 +197,7 @@ struct RentBox: View {
             }
             .frame(maxWidth: 350.0)
         }
-        .padding(.top, 450.0)
-        .padding(.horizontal, 20.0)
+        .padding(.top, 630.0)
     }
 }
 
@@ -311,7 +376,7 @@ struct TopMenuCarDetail: View {
 
 struct CarDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        CarDetailView()
             .previewDevice(PreviewDevice(rawValue: "iPhone 6s"))
             .previewDisplayName("iPhone 6s")
 
