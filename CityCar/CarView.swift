@@ -94,7 +94,6 @@ struct CarList: View {
                         .shadow(color:
                             Color(hue: 0.0, saturation: 0.023, brightness: 0.814), radius: 10, x: 0, y: 0)
                     }
-               
             }
         }
         .padding(.bottom, 10.0)

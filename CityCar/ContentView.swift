@@ -10,59 +10,60 @@ import SwiftUI
 import UIKit
 
 struct ContentView: View {
+    @State var isLoading: Bool = true
+
     var body: some View {
         NavigationView {
-            NavigatorView()
+            ZStack {
+                if isLoading {
+                    launchScreenView
+                }
+                NavigatorView()
 
                 .navigationBarHidden(true)
-        }.navigationViewStyle(StackNavigationViewStyle())
+            }.navigationViewStyle(StackNavigationViewStyle())
+                .ignoresSafeArea(edges: .vertical)
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                isLoading.toggle()
+            }
+        }
     }
 }
 
 struct NavigatorView: View {
-    @State var isLoading: Bool = true
-
     init() {
         UIScrollView.appearance().bounces = false
     }
 
     var body: some View {
-        ZStack {
-            // Launch Screen
-//                if isLoading {
-//                    launchScreenView
-//                }
-            VStack {
-                ScrollView(showsIndicators: false) {
-                    ZStack {
-                        VStack {
-                            TopMenu()
-                        }
+//             Launch Screen
 
-                        ToogleTabList()
-                    }
-
-                    GPSBox()
-
+        VStack {
+            ScrollView(showsIndicators: false) {
+                ZStack {
                     VStack {
-                        CarListView()
-                        CarListView()
-                        CarListView()
+                        TopMenu()
                     }
-                    .padding(.bottom, 10.0)
-                }
-                NavigationLink(destination: CarView().navigationBarBackButtonHidden(true)
-                    .navigationBarHidden(true).navigationBarTitle("", displayMode: .automatic)) {
-                        BottomBar()
-                    }
-            }
 
-        }.ignoresSafeArea(edges: .vertical)
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    isLoading.toggle()
+                    ToogleTabList()
                 }
+
+                GPSBox()
+
+                VStack {
+                    CarListView()
+                    CarListView()
+                    CarListView()
+                }
+                .padding(.bottom, 10.0)
             }
+            NavigationLink(destination: CarView().navigationBarBackButtonHidden(true)
+                .navigationBarHidden(true).navigationBarTitle("", displayMode: .automatic)) {
+                    BottomBar()
+                }
+        }
     }
 }
 
@@ -253,9 +254,8 @@ struct GPSBox: View {
 
 struct BottomBar: View {
     var body: some View {
-        
         ZStack {
-            HStack() {
+            HStack {
                 Text("총")
                     .font(.system(size: 16, weight: .medium))
                     .foregroundColor(Color.white)
@@ -268,16 +268,14 @@ struct BottomBar: View {
                     .font(.system(size: 16, weight: .medium))
                     .foregroundColor(Color.white)
             }
-            
+
         }.frame(
             maxWidth: .infinity
         ).frame(maxHeight: 60.0, alignment: .center)
-        .background(Color("PrimaryColor"))
-        .cornerRadius(10, corners: .topLeft)
-        .cornerRadius(10, corners: .topRight)
-        .padding(EdgeInsets(top: 0, leading: 0, bottom: safeAreaBottomInset(), trailing: 0))
-        
-        
+            .background(Color("PrimaryColor"))
+            .cornerRadius(10, corners: .topLeft)
+            .cornerRadius(10, corners: .topRight)
+            .padding(EdgeInsets(top: 0, leading: 0, bottom: safeAreaBottomInset(), trailing: 0))
     }
 }
 

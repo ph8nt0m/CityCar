@@ -10,12 +10,12 @@ import UIKit
 
 extension View {
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
-        clipShape( RoundedCorner(radius: radius, corners: corners) )
+        clipShape(RoundedCorner(radius: radius, corners: corners))
     }
-    
+
     func safeAreaTopInset() -> CGFloat {
-        let statusHeight = UIApplication.shared.statusBarFrame.size.height   // 상태바 높이
-        
+        let statusHeight = UIApplication.shared.statusBarFrame.size.height // 상태바 높이
+
         if #available(iOS 11.0, *) {
             let window = UIApplication.shared.keyWindow
             let topPadding = window?.safeAreaInsets.top
@@ -26,12 +26,12 @@ extension View {
             return statusHeight
         }
     }
-    
+
     func safeAreaBottomInset() -> CGFloat {
         if #available(iOS 11.0, *) {
             let window = UIApplication.shared.keyWindow
             let bottomPadding = window?.safeAreaInsets.bottom
-            return bottomPadding ??  0.0
+            return bottomPadding ?? 0.0
         } else {
             return 0.0
         }
@@ -39,7 +39,6 @@ extension View {
 }
 
 struct RoundedCorner: Shape {
-
     var radius: CGFloat = .infinity
     var corners: UIRectCorner = .allCorners
 
