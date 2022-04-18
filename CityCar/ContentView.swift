@@ -13,8 +13,8 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             NavigatorView()
-            
-            .navigationBarHidden(true)
+
+                .navigationBarHidden(true)
         }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
@@ -253,26 +253,31 @@ struct GPSBox: View {
 
 struct BottomBar: View {
     var body: some View {
-        HStack {
-            Text("총")
-                .font(.system(size: 16, weight: .medium))
-                .foregroundColor(Color.white)
+        
+        ZStack {
+            HStack() {
+                Text("총")
+                    .font(.system(size: 16, weight: .medium))
+                    .foregroundColor(Color.white)
 
-            Text("22건의")
-                .font(.system(size: 16, weight: .bold))
-                .foregroundColor(Color.white)
+                Text("22건의")
+                    .font(.system(size: 16, weight: .bold))
+                    .foregroundColor(Color.white)
 
-            Text("렌트카를 찾았어요")
-                .font(.system(size: 16, weight: .medium))
-                .foregroundColor(Color.white)
-        }
-        .frame(
+                Text("렌트카를 찾았어요")
+                    .font(.system(size: 16, weight: .medium))
+                    .foregroundColor(Color.white)
+            }
+            
+        }.frame(
             maxWidth: .infinity
-        ).frame(height: 60.0, alignment: .center)
+        ).frame(maxHeight: 60.0, alignment: .center)
         .background(Color("PrimaryColor"))
         .cornerRadius(10, corners: .topLeft)
         .cornerRadius(10, corners: .topRight)
         .padding(EdgeInsets(top: 0, leading: 0, bottom: safeAreaBottomInset(), trailing: 0))
+        
+        
     }
 }
 
